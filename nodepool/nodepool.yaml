@@ -29,7 +29,23 @@ labels:
     min-ready: 1
     providers:
       - name: local_01
-
+diskimages:
+    - name: dpc
+      elements:
+        - ubuntu-minimal
+        - vm
+        - simple-init
+        - openstack-repos
+        - nodepool-base
+        - cache-devstack
+        - growroot
+        - infra-package-needs
+        - stackviz
+      release: trusty
+      env-vars:
+        TMPDIR: /opt/dib_tmp
+        DIB_IMAGE_CACHE: /opt/dib_cache
+/*
 diskimages:
     - name: dpc
       elements:
@@ -43,7 +59,7 @@ diskimages:
       env-vars:
         TMPDIR: /opt/dib_tmp
         DIB_IMAGE_CACHE: /opt/dib_cache
-
+*/
 providers:
   - name: local_01
 #TODO: Update the provider username, password, and authurl
