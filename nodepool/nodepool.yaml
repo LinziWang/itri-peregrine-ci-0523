@@ -45,21 +45,6 @@ diskimages:
       env-vars:
         TMPDIR: /opt/dib_tmp
         DIB_IMAGE_CACHE: /opt/dib_cache
-/*
-diskimages:
-    - name: dpc
-      elements:
-        - ubuntu
-        - vm
-        - openstack-repos
-        #- puppet
-        - nodepool-base
-        - cache-devstack
-      release: trusty
-      env-vars:
-        TMPDIR: /opt/dib_tmp
-        DIB_IMAGE_CACHE: /opt/dib_cache
-*/
 providers:
   - name: local_01
 #TODO: Update the provider username, password, and authurl
