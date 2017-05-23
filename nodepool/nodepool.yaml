@@ -44,7 +44,12 @@ diskimages:
       release: trusty
       env-vars:
         TMPDIR: /opt/dib_tmp
+        DIB_CHECKSUM: '1'
         DIB_IMAGE_CACHE: /opt/dib_cache
+        DIB_APT_LOCAL_CACHE: '0'
+        DIB_DISABLE_APT_CLEANUP: '1'
+        DIB_GRUB_TIMEOUT: '0'
+        DIB_DEBIAN_COMPONENTS: 'main,universe'
 providers:
   - name: local_01
 #TODO: Update the provider username, password, and authurl
