@@ -57,8 +57,8 @@ providers:
         min-ram: 8192
         diskimage: dpc
         username: jenkins
-        private-key: '/home/nodepool/.ssh/id_rsa'
-        #private-key: '/etc/nodepool/id_rsa'
+        #private-key: '/home/nodepool/.ssh/id_rsa'
+        private-key: '/etc/nodepool/id_rsa'
 
 targets:
   - name: jenkins1
