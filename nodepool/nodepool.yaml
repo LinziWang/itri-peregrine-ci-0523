@@ -53,8 +53,8 @@ diskimages:
 providers:
   - name: local_01
 #TODO: Update the provider username, password, and authurl
-    username: peregrine
-    password: password
+    username: admin
+    password: admin
     auth-url: http://10.214.178.11:5000/v2.0
     project-name: admin
     max-servers: 3
