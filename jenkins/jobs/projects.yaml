@@ -4,9 +4,17 @@
     node: master
     vendor: ITRI Peregrine CI
 
-    jobs:
-        - noop-check-communication
+#    jobs:
+#        - noop-check-communication
+#        - dsvm-tempest-full:
+#            node: 'devstack_slave || devstack-precise-check || d-p-c'
+#        - dsvm-tempest-my-cinder-driver:
+#            node: 'd-p-c'
+
+jobs:
+        - noop-check-communication:
+            node: 'xenial'
         - dsvm-tempest-full:
-            node: 'devstack_slave || devstack-precise-check || d-p-c'
+            node: 'xenial'
         - dsvm-tempest-my-cinder-driver:
-            node: 'd-p-c'
+            node: 'xenial'
