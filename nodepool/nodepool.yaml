@@ -23,14 +23,56 @@ zmq-publishers:
 gearman-servers:
   - host: 127.0.0.1
 
+#labels:
+#  - name: d-p-c
+#    image: dpc
+#    min-ready: 1
+#    providers:
+#      - name: local_01
+#diskimages:
+#    - name: dpc
+#      elements:
+#        - ubuntu-minimal
+#        - vm
+#        - simple-init
+#        - openstack-repos
+#        - nodepool-base
+#        - cache-devstack
+#        - growroot
+#        - infra-package-needs
+#        - stackviz
+#      release: trusty
+#       env-vars:
+#        TMPDIR: /opt/dib_tmp
+#        DIB_CHECKSUM: '1'
+#        DIB_IMAGE_CACHE: /opt/dib_cache
+#        DIB_APT_LOCAL_CACHE: '0'
+#        DIB_DISABLE_APT_CLEANUP: '1'
+#        DIB_GRUB_TIMEOUT: '0'
+#        DIB_DEBIAN_COMPONENTS: 'main,universe'
+#providers:
+#  - name: local_01
+#TODO: Update the provider username, password, and authurl
+#    username: admin
+#    password: admin
+#    auth-url: http://10.214.178.11:5000/v2.0
+#    project-name: admin
+#    max-servers: 3
+#    images:
+#      - name: dpc
+#        min-ram: 8192
+#        diskimage: dpc
+#        username: jenkins
+        #private-key: '/home/nodepool/.ssh/id_rsa'
+#        private-key: '/etc/nodepool/id_rsa'
 labels:
-  - name: d-p-c
-    image: dpc
+  - name: xenial
+    image: xenial
     min-ready: 1
     providers:
       - name: local_01
 diskimages:
-    - name: dpc
+    - name: xenial
       elements:
         - ubuntu-minimal
         - vm
@@ -38,10 +80,10 @@ diskimages:
         - openstack-repos
         - nodepool-base
         - cache-devstack
+        - initialize-urandom
         - growroot
         - infra-package-needs
-        - stackviz
-      release: trusty
+      release: xenial
       env-vars:
         TMPDIR: /opt/dib_tmp
         DIB_CHECKSUM: '1'
@@ -54,17 +96,25 @@ providers:
   - name: local_01
 #TODO: Update the provider username, password, and authurl
     username: admin
-    password: admin
-    auth-url: http://10.214.178.11:5000/v2.0
+    password: password
+    auth-url: http://10.214.1.12/identity
+    #auth-url: http://10.214.1.12:5000/v3
+    identity_api_version: 3
     project-name: admin
     max-servers: 3
+    clean-floating-ips: true
+    pool: 'public'
+    networks:
+      - name: 'jenkins'
+        public: True
     images:
-      - name: dpc
+      - name: xenial
         min-ram: 8192
-        diskimage: dpc
+        diskimage: xenial
         username: jenkins
         #private-key: '/home/nodepool/.ssh/id_rsa'
         private-key: '/etc/nodepool/id_rsa'
+
 
 targets:
   - name: jenkins1
