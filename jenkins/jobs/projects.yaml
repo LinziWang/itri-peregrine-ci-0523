@@ -11,7 +11,7 @@
 #        - dsvm-tempest-my-cinder-driver:
 #            node: 'd-p-c'
 
-jobs:
+    jobs:
         - noop-check-communication:
             node: 'xenial'
         - dsvm-tempest-full:
